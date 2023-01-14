@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1434012119 source:e:\test4\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	<locale.h>
+	<string>
+	<cstdio>
+	<cstring>
+

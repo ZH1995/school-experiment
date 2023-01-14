@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1433561021 source:e:\处理机调度\main.cpp
+	<iostream>
+	<cstdio>
+	<algorithm>
+	<set>
+	<stack>
+	<climits>
+	<cstring>
+
+1434018066 source:i:\操作系统课程设计[模板]\实验五\处理机调度\main.cpp
+	<iostream>
+	<cstdio>
+	<algorithm>
+	<set>
+	<stack>
+	<climits>
+	<cstring>
+
+1434020312 source:h:\操作系统课程设计[模板]\实验五\处理机调度\main.cpp
+	<iostream>
+	<cstdio>
+	<algorithm>
+	<set>
+	<stack>
+	<climits>
+	<cstring>
+

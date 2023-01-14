@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1429849592 source:i:\创业\nicaicaikan\main.cpp
+	<iostream>
+	<cstdio>
+	<cmath>
+	<cstdlib>
+	<time.h>
+	<string>
+	<algorithm>
+	<deque>
+	<queue>
+
+1430387206 source:f:\创业\nicaicaikan\main.cpp
+	<iostream>
+	<cstdio>
+	<cmath>
+	<cstdlib>
+	<time.h>
+	<string>
+	<algorithm>
+	<deque>
+	<queue>
+
+1430185650 source:h:\创业\nicaicaikan\main.cpp
+	<iostream>
+	<cstdio>
+	<cmath>
+	<cstdlib>
+	<time.h>
+	<string>
+	<algorithm>
+	<deque>
+	<queue>
+
+1430365598 source:g:\创业\nicaicaikan\main.cpp
+	<iostream>
+	<cstdio>
+	<cmath>
+	<cstdlib>
+	<time.h>
+	<string>
+	<algorithm>
+	<deque>
+	<queue>
+

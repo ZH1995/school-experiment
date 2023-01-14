@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1433470533 source:e:\银行家算法\main.cpp
+	<iostream>
+	<cstdio>
+	<set>
+	<vector>
+
