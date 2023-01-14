@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1459842734 source:d:\网络实验\实验一\tcp-server\main.cpp
+	<cstdio>
+	<iostream>
+	<process.h>
+	<string>
+	<winsock2.h>
+
+1461714290 source:d:\网络实验\实验二\tcp-server\main.cpp
+	<cstdio>
+	<iostream>
+	<process.h>
+	<string>
+	<winsock2.h>
+	<set>
+	<time.h>
+

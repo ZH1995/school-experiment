@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1461636879 source:d:\网络实验\实验二\tcp-client02\main.cpp
+	<stdio.h>
+	<iostream>
+	<string>
+	<winsock2.h>
+	<time.h>
+	<cstdlib>
+
