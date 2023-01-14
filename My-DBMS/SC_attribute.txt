@@ -1,0 +1,1 @@
+stnum char cnum char grade int

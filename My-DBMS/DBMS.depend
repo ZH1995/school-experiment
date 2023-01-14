@@ -1,0 +1,77 @@
+# depslib dependency file v1.0
+1447252120 source:e:\dbms\main.cpp
+	<iostream>
+	<MySQL.h>
+	<cstdio>
+	<string>
+	<cstring>
+	<cstdlib>
+	<fstream>
+
+1447120396 e:\dbms\include\mysql.h
+	<cstdio>
+	<cstdlib>
+	<string>
+	<set>
+	<vector>
+
+1447252162 source:e:\dbms\src\mysql.cpp
+	"MySQL.h"
+	<string>
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<io.h>
+	<vector>
+
+1446638168 source:d:\dbms\main.cpp
+	<iostream>
+	<MySQL.h>
+	<cstdio>
+	<string>
+	<cstring>
+	<cstdlib>
+
+1446638144 d:\dbms\include\mysql.h
+	<cstdio>
+	<cstdlib>
+	<string>
+	<set>
+	<vector>
+
+1446638252 source:d:\dbms\src\mysql.cpp
+	"MySQL.h"
+	<string>
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<io.h>
+	<vector>
+
+1446683503 source:g:\dbms\main.cpp
+	<iostream>
+	<MySQL.h>
+	<cstdio>
+	<string>
+	<cstring>
+	<cstdlib>
+
+1446683924 g:\dbms\include\mysql.h
+	<cstdio>
+	<cstdlib>
+	<string>
+	<set>
+	<vector>
+
+1446685113 source:g:\dbms\src\mysql.cpp
+	"MySQL.h"
+	<string>
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<io.h>
+	<vector>
+

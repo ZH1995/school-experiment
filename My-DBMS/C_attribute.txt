@@ -1,0 +1,1 @@
+ccnum char cname char teacher char

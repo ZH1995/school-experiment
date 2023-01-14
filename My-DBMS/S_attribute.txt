@@ -1,0 +1,1 @@
+snum char sname char age int sex char
