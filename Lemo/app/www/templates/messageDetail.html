@@ -1,0 +1,42 @@
+<ion-view view-title="资讯内容">
+  <ion-content>
+
+      <div class="list card">
+
+      <div>
+        <h3 class="text-center">{{messageDetail.messageTitle}}</h3>
+      </div>
+
+      <div class="item item-avatar">
+        <img src="{{ messageDetail.authorImg }}">
+        <h2>{{ messageDetail.authorName }}</h2>
+        <p>{{ messageDetail.createTime }}</p>
+      </div>
+
+      <div class="item item-body">
+        <img ng-show="messageDetail.coverPic != ''" class="full-image" src="{{ messageDetail.coverPic }}">
+        <pre>{{ messageDetail.messageContent }}</pre>
+      </div>
+
+    </div>
+  </ion-content>
+
+  <ion-footer-bar class="bar-stable">
+      <div class="tabs tabs-icon-only">
+          <a class="tab-item" ng-click="thumbsUp()">
+            <i class="icon ion-thumbsup" style="position: relative;">
+                <span class="badge {{ thumbsUpColor }}">{{ messageDetail.goodNum }}</span>
+            </i>
+          </a>
+          <a class="tab-item" ng-click="collectMessage()">
+            <i class="icon {{ collectIcon }}" style="position: relative;">
+            </i>
+          </a>
+          <a class="tab-item" href="#/app/commentList/{{messageId}}">
+            <i class="icon ion-ios-chatboxes-outline" style="position: relative;">
+                <span ng-show="messageDetail.commentNum != 0" class="badge badge-positive">{{ messageDetail.commentNum }}</span>
+            </i>
+          </a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

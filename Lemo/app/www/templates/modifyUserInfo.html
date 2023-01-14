@@ -1,0 +1,26 @@
+<ion-view view-title="修改信息">
+    <ion-content class="padding">
+        <form name="myForm" novalidate>
+            <div class="list">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">用户名</span>
+                <input type="text" placeholder="请输入用户名" name="userName" ng-model="formUser.userName">
+              </label>
+
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">个性签名</span>
+                <input type="text" placeholder="无个性，不签名" name="userSign" ng-model="formUser.userSign">
+              </label>
+
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">更新头像</span>
+                <div class="row">
+                <ion-radio ng-value="1" ng-model="formUser.choice">是</ion-radio>
+                <ion-radio ng-value="0" ng-model="formUser.choice">否</ion-radio>
+                </div>
+              </label>
+            </div>
+            <input  class="button  button-block button-small button-positive" type="submit" ng-click="doSubmit()" value="提交修改"/>
+        </form>
+    </ion-content>
+</ion-view>

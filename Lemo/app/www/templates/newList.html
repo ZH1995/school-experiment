@@ -1,0 +1,11 @@
+<ion-view view-title="消息列表">
+  <ion-content>
+
+    <div class="list list-inset">
+        <div class="item" ng-repeat="new in newList">
+            <pre >{{ new.content }}</pre>
+            <p>{{ new.create_time }}</p>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

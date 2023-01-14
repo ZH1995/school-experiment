@@ -1,0 +1,14 @@
+<ion-view view-title="{{ writeTitle }}">
+
+  <ion-content>
+    <div class="card">
+        <div class="item item-text-wrap">
+            <textarea ng-model="$parent.commentContent" rows="10" cols="45px" placeholder="不友善言论会被删除，深度讨论会被优先展示。"></textarea>
+        </div>
+    </div>
+
+    <button class="button button-full button-positive" ng-click="doPublic()">
+      发布
+    </button>
+  </ion-content>
+</ion-view>

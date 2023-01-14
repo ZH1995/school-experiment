@@ -1,0 +1,30 @@
+<ion-view view-title="评论列表">
+  <ion-content>
+
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <div class="list card" ng-repeat="comment in commentList">
+
+      <a class="item item-avatar" href="#/app/writeComment/{{ messageId }}/{{ comment.authorId }}/{{ comment.authorName }}">
+        <img ng-src="{{comment.authorHeadImg}}"/>
+        <h2>{{comment.authorName}}</h2>
+          <span ng-if="comment.isReply != 0">回复{{ comment.replyName }}:</span>
+          <pre>
+              {{ comment.commentContent }}
+          </pre>
+        <p>{{ comment.createTime }}</p>
+      </a>
+    </div>
+    <button ng-show="!isHaveMoreData" class="button button-full button-positive">没有更多资讯</button>
+    <ion-infinite-scroll   on-infinite="loadMore();" spinner="android" distance="1%" immediate-check="true" ng-if="isHaveMoreData">
+    </ion-infinite-scroll>
+  </ion-content>
+
+
+
+  <ion-footer-bar align-title="center" class="bar-dark">
+      <a style="text-decoration:none" class="title" href="#/app/writeComment/{{ messageId }}/0/空">
+          <i class="icon ion-ios-compose-outline"></i>
+          <span>写点评</span>
+      </a>
+    </ion-footer-bar>
+</ion-view>

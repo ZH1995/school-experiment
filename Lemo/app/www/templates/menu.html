@@ -1,0 +1,72 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">个人中心</h1>
+    </ion-header-bar>
+    <ion-content>
+
+      <div class="item item-avatar" menu-close ui-sref="app.modifyUserInfo">
+        <img src="{{ userInfo.headImg }}">
+        <h2 href="#/app/modifyUserInfo">{{ userInfo.uname }}</h2>
+        <p>{{ userInfo.userSign }}</p>
+      </div>
+
+      <ion-item menu-close href="#/app/collectionList">
+        <i class="icon ion-android-star-outline"></i>
+        收藏
+      </ion-item>
+      <!--
+      <ion-item menu-close href="#/app/newList">
+        <i class="icon ion-android-notifications-none"></i>
+        消息
+      </ion-item>
+      -->
+      <ion-list>
+        <!--
+        <ion-item menu-close ng-click="login()">
+          Login
+        </ion-item>
+        -->
+        <ion-item menu-close href="#/app/messageList/热点新闻/1001">
+            <i class="icon ion-ios-home-outline"></i>
+          首页
+        </ion-item>
+        <ion-item menu-close href="#/app/messageList/社会新闻/1">
+          社会
+        </ion-item>
+        <ion-item menu-close href="#/app/messageList/娱乐新闻/2">
+          娱乐
+        </ion-item>
+        <ion-item menu-close href="#/app/messageList/科技新闻/3">
+          科技
+        </ion-item>
+        <ion-item menu-close href="#/app/messageList/体育新闻/4">
+          体育
+        </ion-item>
+        <ion-item menu-close href="#/app/messageList/军事新闻/5">
+          军事
+        </ion-item>
+        <ion-item menu-close href="#/app/messageList/财经新闻/6">
+          财经
+        </ion-item>
+      </ion-list>
+
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-assertive">
+         <a class="title" ng-click="showConfirm()">退出登录</a>
+    </ion-footer-bar>
+  </ion-side-menu>
+</ion-side-menus>

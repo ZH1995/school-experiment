@@ -1,0 +1,15 @@
+<ion-view view-title="{{ listTitle }}">
+  <ion-content>
+
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <div class="list">
+        <a class="item item-thumbnail-right" ng-repeat="message in messageList" href="#/app/messageDetail/{{message.messageId}}">
+            <img ng-show="message.coverPic != ''" ng-src="{{message.coverPic}}"/>
+            <pre>{{message.messageTitle}}</pre>
+        </a>
+    </div>
+    <button ng-show="!isHaveMoreData" class="button button-full button-positive">没有更多资讯</button>
+    <ion-infinite-scroll   on-infinite="loadMore();" spinner="android" distance="1%" immediate-check="true" ng-if="isHaveMoreData">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
