@@ -12,7 +12,7 @@ char s[1024];
 char s2[5];
 void recvProc(void *p)
 {
-    SOCKET socka = (SOCKET)p; //void*×ª»»»ØÀ´
+    SOCKET socka = (SOCKET)p; //void*è½¬æ¢å›æ¥
 
     int n = 0;
     set<char> bianhao;
@@ -21,19 +21,19 @@ void recvProc(void *p)
     string result = "";
     while((n = recv(socka, s, sizeof(s), 0)) > 0){
         s[n] = '\0';
-        if(s[2] == '0'){ // Ğ£ÑéĞòÁĞÎŞÎó
+        if(s[2] == '0'){ // æ ¡éªŒåºåˆ—æ— è¯¯
             if(bianhao.count(s[3])){
-                // ÒÑ½ÓÊÜ¹ı¸ÃÖ¡
+                // å·²æ¥å—è¿‡è¯¥å¸§
                 s2[0] = 'A';
                 s2[1] = 'C';
                 s2[2] = 'K';
                 s2[3] = pre;
                 s2[4] = '\0';
-                cout << "·şÎñÆ÷¶Ë·¢ËÍĞÅÏ¢(ÒÑÊÕµ½¸ÃÖ¡)£º" << s2 << endl;
+                cout << "æœåŠ¡å™¨ç«¯å‘é€ä¿¡æ¯(å·²æ”¶åˆ°è¯¥å¸§)ï¼š" << s2 << endl;
                 send(socka, s2, strlen(s2), 0);
             }
             else{
-                cout << "·şÎñÆ÷¶Ë½ÓÊÕĞÅÏ¢£º" << s << endl;
+                cout << "æœåŠ¡å™¨ç«¯æ¥æ”¶ä¿¡æ¯ï¼š" << s << endl;
                 bianhao.insert(s[3]);
                 result += s[1];
                 s2[0] = 'A';
@@ -48,23 +48,23 @@ void recvProc(void *p)
                     pre = '0';
                     s2[4] = '\0';
                 }
-                cout << "·şÎñÆ÷¶Ë·¢ËÍĞÅÏ¢£º" << s2 << endl;
+                cout << "æœåŠ¡å™¨ç«¯å‘é€ä¿¡æ¯ï¼š" << s2 << endl;
                 send(socka, s2, strlen(s2), 0);
             }
         }
         else{
-            // Ğ£Ñé³ö´í£¬ÖØ´«
-            cout << "·şÎñÆ÷¶Ë·¢ËÍĞÅÏ¢£¨Ğ£ÑéÒì³££©£º" << s << endl;
+            // æ ¡éªŒå‡ºé”™ï¼Œé‡ä¼ 
+            cout << "æœåŠ¡å™¨ç«¯å‘é€ä¿¡æ¯ï¼ˆæ ¡éªŒå¼‚å¸¸ï¼‰ï¼š" << s << endl;
             s2[0] = 'A';
             s2[1] = 'C';
             s2[2] = 'K';
             s2[3] = pre;
             s2[4] = '\0';
-            cout << "·şÎñÆ÷¶Ë·¢ËÍĞÅÏ¢£º" << s2 << endl;
+            cout << "æœåŠ¡å™¨ç«¯å‘é€ä¿¡æ¯ï¼š" << s2 << endl;
             send(socka, s2, strlen(s2), 0);
         }
     }
-    cout << "·şÎñÆ÷×îÖÕ½ÓÊÜ½á¹ûÎª£º" << result << endl;
+    cout << "æœåŠ¡å™¨æœ€ç»ˆæ¥å—ç»“æœä¸ºï¼š" << result << endl;
     result = "";
 }
 int main()
@@ -74,35 +74,35 @@ int main()
     n = WSAStartup(MAKEWORD(2, 2), &wd);
     if (n)
     {
-        cout << "WSAStartupº¯Êı´íÎó£¡" << endl;
+        cout << "WSAStartupå‡½æ•°é”™è¯¯ï¼" << endl;
         return -1;
     }
     SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
     if (INVALID_SOCKET == sock)
     {
-        cout << "socket½¨Á¢Ê§°Ü!" << endl;
-        cout << "´íÎóÂëÊÇ£º" << WSAGetLastError() << endl;
+        cout << "socketå»ºç«‹å¤±è´¥!" << endl;
+        cout << "é”™è¯¯ç æ˜¯ï¼š" << WSAGetLastError() << endl;
         return -1;
     }
     sockaddr_in sa = { AF_INET, htons(PORT) };
     n = bind(sock, (sockaddr*)&sa, sizeof(sa));
     if (n == SOCKET_ERROR)
     {
-        cout << "bind°ó¶¨¶Ë¿ÚÊ§°Ü£¡" << endl;
-        cout << "´íÎóÂëÊÇ£º" << WSAGetLastError() << endl;
+        cout << "bindç»‘å®šç«¯å£å¤±è´¥ï¼" << endl;
+        cout << "é”™è¯¯ç æ˜¯ï¼š" << WSAGetLastError() << endl;
         return -1;
     }
     else
     {
-        cout << "¶Ë¿Ú·¢²¼³É¹¦:" << PORT << endl;
+        cout << "ç«¯å£å‘å¸ƒæˆåŠŸ:" << PORT << endl;
     }
-    listen(sock, 5); //µÚ¶ş¸ö²ÎÊıÒ»°ãÉèÖÃ5
+    listen(sock, 5); //ç¬¬äºŒä¸ªå‚æ•°ä¸€èˆ¬è®¾ç½®5
 
     char s[256] = { 0 };
     while (true)
     {
-        SOCKET socka = accept(sock, NULL, NULL); //µÚ¶şÈı¸ö²ÎÊıÊÇÁ¬½ÓÕßµÄipºÍ¶Ë¿ÚµÈĞÅÏ¢£¬ÊÇ·µ»ØÀàĞÍµÄÖµ£¬²»ĞèÒª¿ÉÒÔÖÃnull
-        _beginthread(recvProc, 0, (void*)socka); //void*Ö¸ÏòÈÎºÎÀàĞÍµÄÖ¸Õë
+        SOCKET socka = accept(sock, NULL, NULL); //ç¬¬äºŒä¸‰ä¸ªå‚æ•°æ˜¯è¿æ¥è€…çš„ipå’Œç«¯å£ç­‰ä¿¡æ¯ï¼Œæ˜¯è¿”å›ç±»å‹çš„å€¼ï¼Œä¸éœ€è¦å¯ä»¥ç½®null
+        _beginthread(recvProc, 0, (void*)socka); //void*æŒ‡å‘ä»»ä½•ç±»å‹çš„æŒ‡é’ˆ
     }
     return 0;
 }

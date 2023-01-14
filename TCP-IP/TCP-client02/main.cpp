@@ -18,30 +18,30 @@ int main()
     n = WSAStartup(MAKEWORD(2, 2), &wd);
     if (n)
     {
-        cout << "WSAStartupº¯Êý´íÎó!" << endl;
+        cout << "WSAStartupå‡½æ•°é”™è¯¯!" << endl;
         return -1;
     }
     SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
     if (INVALID_SOCKET == sock)
     {
-        cout << "socket½¨Á¢Ê§°Ü£¡" << endl;
+        cout << "socketå»ºç«‹å¤±è´¥ï¼" << endl;
         return -1;
     }
-    sockaddr_in sa = { AF_INET };   //Ëæ»ú·ÖÅäÒ»¸ö¶Ë¿Ú
+    sockaddr_in sa = { AF_INET };   //éšæœºåˆ†é…ä¸€ä¸ªç«¯å£
     n = bind(sock, (sockaddr*)&sa, sizeof(sa));
     if (n == SOCKET_ERROR)
     {
-        cout << "bindº¯ÊýÊ§°Ü£¡" << endl;
-        cout << "´íÎóÂëÊÇ£º" << WSAGetLastError() << endl;
+        cout << "bindå‡½æ•°å¤±è´¥ï¼" << endl;
+        cout << "é”™è¯¯ç æ˜¯ï¼š" << WSAGetLastError() << endl;
         return -1;
     }
     sa.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");//115.200.33.112
     sa.sin_port = htons(PORT);
-    n = connect(sock, (sockaddr*)&sa, sizeof(sa)); //Ö¸¶¨¶Ë¿Ú·¢ËÍÊý¾Ý
+    n = connect(sock, (sockaddr*)&sa, sizeof(sa)); //æŒ‡å®šç«¯å£å‘é€æ•°æ®
     if (n == SOCKET_ERROR)
     {
-        cout << "connectº¯ÊýÊ§°Ü£¡" << endl;
-        cout << "´íÎóÂëÊÇ£º" << WSAGetLastError() << endl;
+        cout << "connectå‡½æ•°å¤±è´¥ï¼" << endl;
+        cout << "é”™è¯¯ç æ˜¯ï¼š" << WSAGetLastError() << endl;
         return -1;
     }
     srand(time(NULL));
@@ -50,20 +50,20 @@ int main()
     {
         fflush(stdin);
         gets(s);
-        // ·Ö×é·¢ËÍ
+        // åˆ†ç»„å‘é€
         int index = 0;
         int chaoshi_time = 0;
         int jiaoyan_time = 0;
         while(index < strlen(s)){
 
-            // ¹¹Ôì·¢ËÍÊý¾Ý
+            // æž„é€ å‘é€æ•°æ®
             char gen_s[5];
-            // Ö¡ÐòºÅ£¬Å¼Êý0£¬ÆæÊý1
+            // å¸§åºå·ï¼Œå¶æ•°0ï¼Œå¥‡æ•°1
             if(index & 1) gen_s[0] = '1';
             else gen_s[0] = '0';
-            // Êý¾ÝÖ¡
+            // æ•°æ®å¸§
             gen_s[1] = s[index];
-            // Ñé´íÎ»,0´ú±íÎÞ´í
+            // éªŒé”™ä½,0ä»£è¡¨æ— é”™
 
             int jiaoyan = rand() % 2;
             if(jiaoyan == 0){
@@ -79,14 +79,14 @@ int main()
             }
             gen_s[3] = (char)(index + '0');
             gen_s[4] = '\0';
-            // ·¢ËÍ
-            cout << "¿Í»§¶Ë·¢ËÍÐÅÏ¢£º" << gen_s << endl;
-            first = time(NULL); // ¿ªÊ¼·¢ËÍÊ±¼ä
+            // å‘é€
+            cout << "å®¢æˆ·ç«¯å‘é€ä¿¡æ¯ï¼š" << gen_s << endl;
+            first = time(NULL); // å¼€å§‹å‘é€æ—¶é—´
             send(sock, gen_s, strlen(gen_s), 0);
-            // ³¬Ê±Ëæ»úÊýÖÖ×Ó
+            // è¶…æ—¶éšæœºæ•°ç§å­
             int timming = rand() % 2;
             if(timming != 0 && chaoshi_time < 2){
-                // ÉèÖÃÑÓÊ±
+                // è®¾ç½®å»¶æ—¶
                 Sleep(3000);
                 chaoshi_time ++;
             }
@@ -95,22 +95,22 @@ int main()
                 if(chaoshi_time >= 2)
                     chaoshi_time = 0;
             }
-            // ½ÓÊÕ
+            // æŽ¥æ”¶
             fflush(stdin);
             recv(sock, s2, sizeof(s2), 0);
-            second = time(NULL); // ½ØÖ¹Ê±¼ä
+            second = time(NULL); // æˆªæ­¢æ—¶é—´
             if(difftime(second, first) - 2 <= 1e-9){
-                // ¿ÉÒÔ¼ÌÐø·¢ËÍÏÂÒ»Î»
+                // å¯ä»¥ç»§ç»­å‘é€ä¸‹ä¸€ä½
                 if(s2[3] != gen_s[0]){
-                    cout << "¿Í»§¶Ë½ÓÊÕÐÅÏ¢£º" << s2 << endl;
+                    cout << "å®¢æˆ·ç«¯æŽ¥æ”¶ä¿¡æ¯ï¼š" << s2 << endl;
                     index ++;
                 }
                 else{
-                    cout << "Ð£ÑéÖØ·¢" << endl;
+                    cout << "æ ¡éªŒé‡å‘" << endl;
                 }
             }
             else{
-                cout << "³¬Ê±ÖØ·¢" << endl;
+                cout << "è¶…æ—¶é‡å‘" << endl;
                 continue;
             }
         }
